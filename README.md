@@ -37,7 +37,8 @@ mvn clean install
 
 ## Patching a project - jsoup example
 
-> [!NOTE] On this case, let's imagine the 1.15.3 version has not been released yet, but the patch is available on GitHub.
+> [!NOTE] 
+> On this case, let's imagine the 1.15.3 version has not been released yet, but the patch is available on GitHub.
 
 Patch the jsoup project to eliminate [CVE-2022-36033](https://github.com/jhy/jsoup/security/advisories/GHSA-gp7f-rwcx-9369) from the 1.15.2 version:
 
