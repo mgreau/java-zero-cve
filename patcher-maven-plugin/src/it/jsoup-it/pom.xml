@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.mgreau.it</groupId>
+    <artifactId>jsoup-it</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.mgreau</groupId>
+                <artifactId>patcher-maven-plugin</artifactId>
+                <version>@project.version@</version>
+                <executions>
+                    <execution>
+                        <id>patch-jsoup</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>apply-patch</goal>
+                        </goals>
+                        <configuration>
+                            <githubRepoUrl>https://github.com/jhy/jsoup</githubRepoUrl>
+                            <githubRepoTag>jsoup-1.15.2</githubRepoTag>
+                            <patchVersion>1.15.3-r0</patchVersion>
+                            <buildCommand>clean,verify</buildCommand>
+                            <buildCommandSkipTests>true</buildCommandSkipTests>
+                            <patches>
+                                <patch>
+                                    <order>1</order>
+                                    <filename>strip-control-chars.patch</filename>
+                                    <url>https://github.com/jhy/jsoup/commit/4ea768d96b3d232e63edef9594766d44597b3882.patch</url>
+                                </patch>
+                            </patches>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
