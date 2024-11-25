@@ -7,7 +7,6 @@ This repository contains
 - `patch-projects` an easy way to patch Maven projects with the `patcher-maven-plugin`, for example to fix the [CVE-2022-36033](https://github.com/jhy/jsoup/security/advisories/GHSA-gp7f-rwcx-9369) in the jsoup project 1.15.2
 
 
-
 ## Install the plugin locally
 
 ```bash
@@ -36,7 +35,9 @@ mvn clean install
 [INFO] ------------------------------------------------------------------------
 ```
 
-## Patch a project
+## Patching a project - jsoup example
+
+> [!NOTE] On this case, let's imagine the 1.15.3 version has not been released yet, but the patch is available on GitHub.
 
 Patch the jsoup project to eliminate [CVE-2022-36033](https://github.com/jhy/jsoup/security/advisories/GHSA-gp7f-rwcx-9369) from the 1.15.2 version:
 
@@ -45,6 +46,8 @@ The plugin does the following:
 - apply the patch
 - build the project and run the tests
 - install the patched version in your local Maven repository
+
+### Patch the library
 
 ```bash
 cd patch-projects
@@ -66,9 +69,7 @@ mvn clean patcher:apply-patch -f patch-jsoup.xml
 [INFO] ------------------------------------------------------------------------
 ```
 
-## Check the patched version against CVE-2022-36033
-
-On this case, let's imagine the 1.15.3 version has not been released yet, but the patch is available on GitHub.
+### Check the patched version against CVE-2022-36033
 
 ```bash
 grype /Users/mgreau/.m2/repository/org/jsoup/jsoup/1.15.2/jsoup-1.15.2.jar
