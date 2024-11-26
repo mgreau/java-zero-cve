@@ -3,8 +3,8 @@
 An easy way to patch Maven projects.
 
 This repository contains
-- `patcher-maven-plugin` - a Maven plugin that allows you to apply patches to a Maven project.
-- `patch-projects` an easy way to patch Maven projects with the `patcher-maven-plugin`, for example to fix the [CVE-2022-36033](https://github.com/jhy/jsoup/security/advisories/GHSA-gp7f-rwcx-9369) in the jsoup project 1.15.2
+- `patcher-maven-plugin` - a Maven plugin that allows to apply patches to a Maven project.
+- `patch-projects` an easy way to patch Maven projects with the `patcher-maven-plugin`, for example, to fix the [CVE-2022-36033](https://github.com/jhy/jsoup/security/advisories/GHSA-gp7f-rwcx-9369) in the jsoup project 1.15.2
 
 
 ## Install the plugin locally
@@ -98,3 +98,8 @@ grype /Users/mgreau/.m2/repository/org/jsoup/jsoup/1.15.3-r0/jsoup-1.15.3-r0.jar
    └── by status:   0 fixed, 0 not-fixed, 0 ignored
 No vulnerabilities found
 ```
+
+## Next steps
+
+- sign the final artifacts with Sigstore using https://github.com/sigstore/sigstore-java/tree/main/sigstore-maven-plugin
+
